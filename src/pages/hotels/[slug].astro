@@ -1,0 +1,41 @@
+---
+interface Hotel {
+  slug: string;
+  name: string;
+  hotel: any;
+}
+
+export async function getStaticPaths() {
+  const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: ` {
+        hotels {
+            name
+            slug
+        }
+        }
+        `,
+    }),
+  });
+
+  const json = await response.json();
+
+  const paths = json.data.hotels.map(
+    (hotel: { slug: string; }) => ({
+      params: { slug: hotel.slug },
+      props: { hotel },
+    }),
+  );
+
+  return paths;
+}
+
+const { hotel }: Hotel = Astro.props;
+---
+
+<h1>{hotel.name}</h1>
