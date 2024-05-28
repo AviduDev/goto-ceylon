@@ -1,23 +1,14 @@
 ---
-import '@/styles/globals.css'
-interface Props {
-	title: string;
-}
+import Head from "@components/Head.astro"
+import "../styles/globals.css"
 
-const { title } = Astro.props;
-
+const defaultTitle = "Find Tours and Destinations in Sri Lanka"
+const defaultDescription = "Explore the enchanting island of Sri Lanka with our curated tours. Discover pristine beaches, ancient temples, lush tea plantations, and vibrant wildlife. Our website features handpicked destinations, top-rated hotels, and exciting local events. Start your Sri Lankan adventure today!"
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
+	<Head title={defaultTitle} description={defaultDescription} />
 	<body>
 		<slot />
 	</body>

@@ -1,48 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Button } from "@/components/ui/button";
-import GetHotels from "@/queries/get-hotels";
-import { Hygraph } from "@/lib/hygraph"
-interface Hotel {
-  name: string;
-  slug: string;
-}
-
-const response = await Hygraph(GetHotels)
-const { data } = await response.json()
-const allHotels = data.hotels
-
-// const query = {
-//   method: "POST",
-//   Headers: { "Content-Type": "application/json" },
-//   body: JSON.stringify({
-//     query: `{
-//           hotels {
-//           name
-//           slug
-//         }
-//       }`,
-//   }),
-// };
-
-// const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, query);
-// const json = await response.json();
-// const hotels: Hotel[] = json.data.hotels;
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
-    <h1 class="text-black font-bold text-6xl text-center">Goto Ceylon</h1>
-    <Button variant="outline"><a href="/">This ddddddddddbutton</a></Button>
-
-    {
-      allHotels.map((post) => (
-        <div>
-          <a href={`/hotels/${post.slug}`}>
-            <h2>{post.name}</h2>
-          </a>
-        </div>
-      ))
-    }
-  </main>
+	<main>
+	<h1 class="text-6xl font-bold text-center uppercase">Avidu</h1>
+	</main>
 </Layout>
