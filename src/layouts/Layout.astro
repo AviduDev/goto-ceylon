@@ -1,15 +1,17 @@
 ---
 import Head from "@components/Head.astro"
 import "../styles/globals.css"
+import Navbar from "@components/Navbar.astro"
 
-const defaultTitle = "GoToCeylon Tours"
-const defaultDescription = "Explore the enchanting island of Sri Lanka with our curated tours. Our website features handpicked destinations, top-rated hotels, and exciting local events. Start your Sri Lankan adventure today"
+const defaultTitle = "Tours and Destinations in Sri Lanka"
+const defaultDescription = "Explore the enchanting island of Sri Lanka with our curated tours. Our website features handpicked destinations, top-rated hotels, and exciting local events."
 ---
 
 <!doctype html>
 <html lang="en">
 	<Head title={defaultTitle} description={defaultDescription} />
-	<body>
+	<body class="p-4">
+		<Navbar />
 		<slot />
 	</body>
 </html>
